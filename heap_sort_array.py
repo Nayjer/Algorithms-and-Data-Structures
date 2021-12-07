@@ -7,10 +7,12 @@ def heapify_array(arr):
     height = int(math.log2(len(arr) - 1) // 1)
     for k in range(height):
         for level in range(height, k, -1):
-            print(level)
             for i in range(2 ** level, 2 ** (level + 1), 2):
-                if i + 1 >= len(arr):
+                if i + 1 > len(arr):
                     break
+                elif i + 1 == len(arr):
+                    if arr[i] > arr[i // 2]:
+                        arr[i], arr[i // 2] = arr[i // 2], arr[i]
                 else:
                     if arr[i] > arr[i + 1] and arr[i] > arr[i // 2]:
                         arr[i], arr[i // 2] = arr[i // 2], arr[i]
@@ -25,15 +27,11 @@ sorted_array = []
 def heap_sort(arr):
     if len(arr) == 1:
         return arr
-    height = int(math.log2(len(arr) - 1) // 1)
     arr[1], arr[len(arr) - 1] = arr[len(arr) - 1], arr[1]
     sorted_array.append(arr[len(arr) - 1])
     arr.pop()
     i = 1
-    c = 0
-    while c < height - 1:
-        if 2 * i >= len(arr):
-            return heap_sort(arr)
+    while 2 * i < len(array) - 1:
         if arr[i] < arr[2 * i] and arr[2 * i] > arr[2 * i + 1]:
             arr[i], arr[2 * i] = arr[2 * i], arr[i]
             i = 2 * i
@@ -42,7 +40,6 @@ def heap_sort(arr):
             i = 2 * i + 1
         else:
             return heap_sort(arr)
-        c += 1
     return heap_sort(arr)
 
 
