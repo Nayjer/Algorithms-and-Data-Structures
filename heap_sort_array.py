@@ -25,7 +25,6 @@ sorted_array = []
 
 
 def heap_sort(arr):
-    print(arr)
     if len(arr) == 1:
         return arr
     arr[1], arr[len(arr) - 1] = arr[len(arr) - 1], arr[1]
