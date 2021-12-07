@@ -25,21 +25,28 @@ sorted_array = []
 
 
 def heap_sort(arr):
+    print(arr)
     if len(arr) == 1:
         return arr
     arr[1], arr[len(arr) - 1] = arr[len(arr) - 1], arr[1]
     sorted_array.append(arr[len(arr) - 1])
     arr.pop()
     i = 1
-    while 2 * i < len(array) - 1:
-        if arr[i] < arr[2 * i] and arr[2 * i] > arr[2 * i + 1]:
+    if len(arr) == 3:
+        if arr[i] < arr[2 * i]:
             arr[i], arr[2 * i] = arr[2 * i], arr[i]
-            i = 2 * i
-        elif arr[i] < arr[2 * i + 1] and arr[2 * i + 1] > arr[2 * i]:
-            arr[i], arr[2 * i + 1] = arr[2 * i + 1], arr[i]
-            i = 2 * i + 1
         else:
             return heap_sort(arr)
+    else:
+        while 2 * i < len(array) - 1:
+            if arr[i] < arr[2 * i] and arr[2 * i] > arr[2 * i + 1]:
+                arr[i], arr[2 * i] = arr[2 * i], arr[i]
+                i = 2 * i
+            elif arr[i] < arr[2 * i + 1] and arr[2 * i + 1] > arr[2 * i]:
+                arr[i], arr[2 * i + 1] = arr[2 * i + 1], arr[i]
+                i = 2 * i + 1
+            else:
+                return heap_sort(arr)
     return heap_sort(arr)
 
 
