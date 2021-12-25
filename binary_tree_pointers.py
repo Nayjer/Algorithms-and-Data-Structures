@@ -11,7 +11,7 @@ class BinaryTree:
     """
     Binary trees are used to store data efficiently, for example in databases.
     Time-complexity is determined by the height of the tree: log_2(number_of_elements) // 1 <= height <= number_of_elements - 1
-    In average we have 1,33*log(n) comparisons.
+    In average we have 1,39*log(n) comparisons.
     """
     
     def __init__(self):
